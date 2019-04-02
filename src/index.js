@@ -1,5 +1,5 @@
 import React from 'react'
-import spider from './spider';
+import spider from '.utils/spider';
 import './styles.css';
 
 const noSmoothing = points => {
