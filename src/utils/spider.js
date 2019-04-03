@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles.css';
 //
 let captionPoints = [];
 
@@ -119,16 +120,18 @@ const captionIndex = options => col => (
 const caption = options => col => {
     let style = (col.status / 100 === 1) ? 'caption' : 'caption-completed';
 
-    let pointX = polarToX(col.angle, (options.size / 2) * 0.90).toFixed(4);
-    let pointY = polarToY(col.angle, (options.size / 2) * 0.90).toFixed(4);
+    let distance = (options.icons || options.circleFill) ? 0.95 : 0.75;
 
-    let points = getPointsForCaption(col.key, pointY);
+    let pointX = polarToX(col.angle, (options.size / 2) * distance).toFixed(4);
+    let pointY = polarToY(col.angle, (options.size / 2) * distance).toFixed(4);
+
+    //let points = getPointsForCaption(col.key, pointY);
 
     return (
         <text
             key={`caption-of-${col.key}`}
             x={pointX}
-            y={points.pointY}
+            y={pointY}
             dy={(options.captionProps(col).fontSize || 10) / 2}
             {...options.captionProps(style)}
 
@@ -145,7 +148,7 @@ const circleFill = options => col => {
     let style = (col.status / 100 === 1) ? 'fillCircle' : 'fillCircle-completed';
     let pointX = polarToX(col.angle, (options.size / 2) * 0.75).toFixed(4);
     let pointY = polarToY(col.angle, (options.size / 2) * 0.75).toFixed(4);
-    setPointsForCaptions(col.key, pointX, pointY, circleSize);
+    // setPointsForCaptions(col.key, pointX, pointY, circleSize);
     let imagePoints = { x: pointX - imageSize / 2, y: pointY - imageSize / 2 };
     return (
         <g>
@@ -188,7 +191,7 @@ const icon = options => col => {
 }
 
 // rendering the Chart
-const render = (data, props = {}) => {
+const spider = (data, props = {}) => {
 
     if (!Array.isArray(data)) {
         throw new Error('data must be an array');
@@ -211,11 +214,15 @@ const render = (data, props = {}) => {
         if (props.icons) {
             groups.push(<g key={`poly-icons`}>{columns.map(icon(props))}</g>);
         }
-        else {
+        else if (props.circleFill) {
             groups.push(<g key={`poly-circlefill`}>{columns.map(circleFill(props))}</g>);
         }
-        groups.push(<g key={`poly-captionsindex`}>{columns.map(captionIndex(props))}</g>);
-        groups.push(<g key={`poly-captions`}>{columns.map(caption(props))}</g>);
+        if (props.captionIndex) {
+            groups.push(<g key={`poly-captionsindex`}>{columns.map(captionIndex(props))}</g>);
+        }
+        if (props.captions) {
+            groups.push(<g key={`poly-captions`}>{columns.map(caption(props))}</g>); 
+        }
 
     }
     if (props.axes) {
@@ -235,4 +242,4 @@ const render = (data, props = {}) => {
 
 };
 
-export default render;
+export default spider;

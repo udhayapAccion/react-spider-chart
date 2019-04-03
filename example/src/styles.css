@@ -1,0 +1,67 @@
+/* chart */
+
+.circle {
+    color: #ff0000
+}
+
+.index {
+    color: #333333;
+    font-size: 14px;
+}
+
+.fillCircle {
+    fill: #ffb40a;
+    cursor: pointer;
+}
+.fillCircle-completed{
+  fill: #64b927;
+  cursor: pointer;
+}
+
+.radar-chart {
+    border: "1px solid #FF0000";
+    padding: "20px";
+    width: 100%;
+    height: 100%;
+}
+
+.shape {
+    fill: #ffb40a;
+    opacity: .15;
+    border-radius: 0%;
+}
+
+.shape:hover {
+    fill: #ffb40a;
+    opacity: .35;
+    z-index: 100;
+}
+
+.scale {
+    fill: #FAFAFA;
+    stroke: #999;
+    stroke-width: .2;
+}
+
+.axis {
+    stroke: #555;
+    stroke-width: .2;
+}
+
+.icon {
+    background-color: #ffb40a;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.caption {
+    fill: #ffb40a;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.caption-completed {
+    fill: #64b927;
+    font-weight: 400;
+    font-size: 20px;
+}

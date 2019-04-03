@@ -1,10 +1,10 @@
 {
   "name": "react-spider-chart",
   "version": "1.0.0",
-  "description": "React Spider chart",
-  "author": "Udhayakumar",
+  "description": "React svg spider chart",
+  "author": "udhayapAccion",
   "license": "MIT",
-  "repository": "Udhayakumar/react-spider-chart",
+  "repository": "udhayapAccion/react-spider-chart",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -57,5 +57,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "fuse.js": "^3.4.4"
+  }
 }

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import SpiderChart from 'react-spider-chart'
+import './styles.css';
 
-import Icon1 from '../assets/circle1.png';
-import Icon2 from '../assets/circle2.png';
-import Icon3 from '../assets/circle3.png';
-import Icon4 from '../assets/circle4.png';
-import Icon5 from '../assets/circle5.png';
+import Icon1 from './assets/circle1.png';
+import Icon2 from './assets/circle2.png';
+import Icon3 from './assets/circle3.png';
+import Icon4 from './assets/circle4.png';
+import Icon5 from './assets/circle5.png';
 
 const chartData = {
     data: [
@@ -29,7 +30,7 @@ const chartData = {
             alert(item.key);
         },
         onShapeClick: function onShapeClick(item) {
-            alert(item.key);
+            //alert(item.key);
         },
         axisProps: () => ({ className: 'axis' }),
         circleProps: () => ({ className: ' circle' }),
@@ -52,7 +53,7 @@ const chartData = {
 export default class App extends Component {
   render () {
     return (
-      <div>
+      <div style={{margin:'0 auto',width:'36%',height:'36%'}}>
         <SpiderChart
 		data={chartData.data}
 		props={chartData.props}

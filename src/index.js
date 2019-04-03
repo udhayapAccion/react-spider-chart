@@ -1,5 +1,6 @@
-import React from 'react'
-import spider from '.utils/spider';
+import React from 'react';
+import spider from './utils/spider';
+
 import './styles.css';
 
 const noSmoothing = points => {
@@ -15,16 +16,18 @@ const defaultProps = {
     axes: true, // show axes?
     scales: 6, // show scale circles?
     captions: true, // show captions?
-    icons: false, // show icons
+    captionIndex : true, // show caption indexes
+    icons: true, // show icons
+    circleFill : true,
     zoomDistance: 1, // where on the axes are the captions?
     drawSize: 4,
     smoothing: noSmoothing, // shape smoothing function
     captionMargin: 10,
     onClick: function iconOnClick(item) {
-        alert(item.key);
+        //alert(item.key);
     },
     onShapeClick: function onShapeClick(item) {
-        alert(item.key);
+        //alert(item.key);
     },
     axisProps: () => ({ className: 'axis' }),
     circleProps: () => ({ className: ' circle' }),
@@ -42,7 +45,7 @@ const defaultProps = {
 };
 
 // Resizable Spider Chart Component
-const SpiderChart = properties =>{
+const SpiderChart = properties => {
     const { data, props } = properties;
     let { size } = props;
     if (!size) {
@@ -52,7 +55,7 @@ const SpiderChart = properties =>{
         size = parseInt(size);
     }
     const chartProps = { ...defaultProps, ...props, size };
-    const chart = radar(data, chartProps);
+    const chart = spider(data, chartProps);
     const captionMargin = chartProps.captionMargin;
     return (
         <svg
@@ -62,7 +65,6 @@ const SpiderChart = properties =>{
             height={size}
             viewBox={`-${captionMargin} 0 ${size + captionMargin * 2} ${size}`}
             style={{
-                border: "1px solid #cccccc",
                 padding: "20px", width: "100%", height: "100%"
             }}
         >
@@ -72,4 +74,3 @@ const SpiderChart = properties =>{
 };
 
 export default SpiderChart;
-

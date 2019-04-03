@@ -1,6 +1,6 @@
 # react-spider-chart
 
-> React Spider chart
+> React svg spider chart
 
 [![NPM](https://img.shields.io/npm/v/react-spider-chart.svg)](https://www.npmjs.com/package/react-spider-chart) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -28,4 +28,4 @@ class Example extends Component {
 
 ## License
 
-MIT © [Udhayakumar](https://github.com/Udhayakumar)
+MIT © [udhayapAccion](https://github.com/udhayapAccion)
