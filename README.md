@@ -33,17 +33,16 @@ const chartData = {
         ],
 
     props: {
-        size: 400,
-		axes: true, // show axes?
-		scales: 6, // show scale circles?
-		captions: true, // show captions?
-		captionIndex : true, // show caption indexes
-		icons: true, // show icons
-		circleFill : true,
-		zoomDistance: 1, // where on the axes are the captions?
-		drawSize: 4,
-		smoothing: noSmoothing, // shape smoothing function
-		captionMargin: 10,
+          size: 400,
+          axes: true, // show axes?
+          scales: 5, // show scale circles?
+          captions: true, // show captions?
+          captionIndex : true, // show caption indexes
+          icons: true, // show icons
+          circleFill : false,
+          zoomDistance: 1, // where on the axes are the captions?
+          drawSize: 4,
+          captionMargin: 10,
         onClick: function iconOnClick(item) {
             alert(item.key);
         },
