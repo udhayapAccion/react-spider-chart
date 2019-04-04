@@ -1,7 +1,7 @@
 import React from 'react';
 import spider from './utils/spider';
 
-import './styles.css';
+import './style.css';
 
 const noSmoothing = points => {
     let d = 'M' + points[0][0].toFixed(4) + ',' + points[0][1].toFixed(4);
@@ -14,7 +14,7 @@ const noSmoothing = points => {
 const defaultProps = {
     size: 400,
     axes: true, // show axes?
-    scales: 6, // show scale circles?
+    scales: 5, // show scale circles?
     captions: true, // show captions?
     captionIndex : true, // show caption indexes
     icons: true, // show icons

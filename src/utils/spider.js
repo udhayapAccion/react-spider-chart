@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles.css';
+import '../style.css';
 //
-let captionPoints = [];
+//let captionPoints = [];
 
 // helper functions
 const polarToX = (angle, distance) => Math.cos(angle - Math.PI / 2) * distance;
@@ -14,29 +14,29 @@ const points = points => {
         .join(' ');
 };
 
-const getPointsForCaption = (key, pointY) => {
-    let tempPoints = {};
-    if (captionPoints.length) {
-        captionPoints.forEach(element => {
-            if (element.key === key) {
-                let val = (element.size * 2);
-                val = (parseInt(val) + parseInt(element.pointY));
-                if (val >= pointY) {
-                    tempPoints = {
-                        pointX: element.pointX,
-                        pointY: element.pointY - element.size * 1.5
-                    };
-                }
+// const getPointsForCaption = (key, pointY) => {
+//     let tempPoints = {};
+//     if (captionPoints.length) {
+//         captionPoints.forEach(element => {
+//             if (element.key === key) {
+//                 let val = (element.size * 2);
+//                 val = (parseInt(val) + parseInt(element.pointY));
+//                 if (val >= pointY) {
+//                     tempPoints = {
+//                         pointX: element.pointX,
+//                         pointY: element.pointY - element.size * 1.5
+//                     };
+//                 }
 
-            }
-        });
-    }
-    return tempPoints;
-}
+//             }
+//         });
+//     }
+//     return tempPoints;
+// }
 
-const setPointsForCaptions = (key, pointX, pointY, size) => {
-    captionPoints.push({ key: key, pointX: pointX, pointY: pointY, size });
-}
+// const setPointsForCaptions = (key, pointX, pointY, size) => {
+//     captionPoints.push({ key: key, pointX: pointX, pointY: pointY, size });
+// }
 
 // Click Handlers
 
@@ -107,10 +107,10 @@ let index = 1;
 const captionIndex = options => col => (
     <text
         key={`caption-of-${col.key}`}
-        x={polarToX(col.angle, (options.size / 2) * 0.55).toFixed(4)}
-        y={polarToY(col.angle, (options.size / 2) * 0.55).toFixed(4)}
-        dy={(options.indexProps(col).fontSize || 10) / 2}
-        {...options.indexProps(col)}
+        x={polarToX(col.angle, (options.size / 2) * 0.57).toFixed(4)}
+        y={polarToY(col.angle, (options.size / 2) * 0.57).toFixed(4)}
+        dy={(options.indexProps().fontSize || 10) / 2}
+        {...options.indexProps()}
     >
         {index++}
     </text>
@@ -218,10 +218,11 @@ const spider = (data, props = {}) => {
             groups.push(<g key={`poly-circlefill`}>{columns.map(circleFill(props))}</g>);
         }
         if (props.captionIndex) {
+            index = 1;
             groups.push(<g key={`poly-captionsindex`}>{columns.map(captionIndex(props))}</g>);
         }
         if (props.captions) {
-            groups.push(<g key={`poly-captions`}>{columns.map(caption(props))}</g>); 
+            groups.push(<g key={`poly-captions`}>{columns.map(caption(props))}</g>);
         }
 
     }

@@ -19,13 +19,16 @@ const chartData = {
         ],
 
     props: {
-        size: 500,
+        size: 400,
         axes: true, // show axes?
-        scales: 6, // how many circles?
+        scales: 5, // show scale circles?
         captions: true, // show captions?
-        indexes: true,
-        icons: false,
-        captionMargin: 0,
+        captionIndex : true, // show caption indexes
+        icons: true, // show icons
+        circleFill : false,
+        zoomDistance: 1, // where on the axes are the captions?
+        drawSize: 4,
+        captionMargin: 10,
         onClick: function iconOnClick(item) {
             alert(item.key);
         },
@@ -34,7 +37,7 @@ const chartData = {
         },
         axisProps: () => ({ className: 'axis' }),
         circleProps: () => ({ className: ' circle' }),
-        indexProps: () => ({ className: 'index',fontSize:14 }),
+        indexProps: () => ({ className: 'index',fontSize:18 }),
         scaleProps: () => ({ className: 'scale', fill: 'none' }),
         shapeProps: () => ({ className: 'shape' }),
         iconProps: () => ({ className: 'icon' }),
